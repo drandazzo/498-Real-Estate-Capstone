@@ -1,0 +1,15 @@
+setwd("C:/Data/School/Data_Files")
+mls <- read.csv('MLS_Data_20120315_20170315.csv')
+bus <- read.csv('Census_Businesses.csv')
+demo <- read.csv('Census_Demographics1.csv')
+zmarket <- read.csv('Zillow_Market_Metrics.csv')
+zratio <- read.csv('Zillow_price_to_rent_ratio.csv')
+zsf <- read.csv('zillow_sf_price.csv')
+
+census1 <- merge(x = demo, y = bus, by="Area_Name")
+
+d1 <- merge(x = mls, y = census1, by.x="Zip", by.y = "Area_Name")
+
+
+
+
