@@ -53,9 +53,13 @@ zsf <- read.csv('zillow_sf_price.csv')
 
 #combine census files
 census1 <- merge(x = demo, y = bus, by="Area_Name")
+#add zillow market health index
+zmarket2 <- zmarket[,c(2,8)]
+
+census2 <- merge(x = census1, y = zmarket2, by.x="Area_Name", by.y="RegionName")
 
 #combine mls data with census data
-d1 <- merge(x = mls, y = census1, by.x="Zip", by.y = "Area_Name")
+d1 <- merge(x = mls, y = census2, by.x="Zip", by.y = "Area_Name")
 
 
 ##########################################
